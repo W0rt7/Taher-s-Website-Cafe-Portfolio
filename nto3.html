@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTO 3 - Coding</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1 {
+      min-height: 100vh;
+      background-image: url("Pixel art.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .info-page {
+      min-height: 100vh;
+      background-image: url("Purple.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .banking-title-page {
+      min-height: 100vh;
+      background-image: url("candle.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .banking-info-page {
+      min-height: 100vh;
+      background-image: url("Lily Spider.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: black;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    }
+
+    .banking-main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      margin: 45px 0 25px 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .banking-page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: white;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    .pink-box {
+      max-width: 950px;
+      background-color: rgba(255, 166, 200, 0.84);
+      border: 2px solid rgba(255, 230, 240, 0.95);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .purple-box {
+      max-width: 950px;
+      background-color: rgba(122, 73, 170, 0.84);
+      border: 2px solid rgba(220, 190, 255, 0.95);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .pink-box:hover,
+    .purple-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+    }
+
+    .pink-box:hover {
+      background-color: rgba(255, 166, 200, 0.92);
+    }
+
+    .purple-box:hover {
+      background-color: rgba(122, 73, 170, 0.92);
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.65rem;
+      color: white;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .box-text + .box-text {
+      margin-top: 18px;
+    }
+
+    .topic-icon {
+      display: block;
+      max-width: 230px;
+      height: auto;
+      margin: 32px auto 0;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .topic-icon:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .code-icon-link {
+      display: inline-block;
+      margin-top: 30px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .code-icon-link:hover {
+      transform: scale(1.12) translateY(-5px);
+      filter: brightness(1.12);
+    }
+
+    .code-icon {
+      max-width: 180px;
+      height: auto;
+      display: block;
+      border-radius: 14px;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(122, 73, 170, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(100, 50, 155, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .page1,
+      .info-page,
+      .banking-title-page,
+      .banking-info-page {
+        padding: 55px 24px 35px;
+      }
+
+      .info-page,
+      .banking-info-page {
+        background-attachment: scroll;
+      }
+
+      .learn-heading {
+        font-size: 1.3rem;
+      }
+
+      .page-title,
+      .banking-page-title {
+        font-size: 0.85rem;
+      }
+
+      .box-text {
+        font-size: 0.55rem;
+      }
+
+      .pink-box,
+      .purple-box {
+        padding: 24px;
+      }
+
+      .topic-icon {
+        max-width: 170px;
+      }
+
+      .code-icon {
+        max-width: 140px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="page1 scroll-reveal">
+    <a href="Index.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <h1 class="main-title">NTO 3 - Coding</h1>
+    <h2 class="learn-heading">What I learnt</h2>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">What is Coding and Programming?</h3>
+
+    <div class="pink-box">
+      <p class="box-text">
+        Coding means writing instructions that tell a computer what to do. These instructions are written using a programming language. Coding is used to create things like websites, mobile apps, games, and software.
+      </p>
+
+      <p class="box-text">
+        Programming is the bigger process of planning, writing, testing, and fixing code. It is not just about typing instructions. Programmers need to think about the problem, design the steps, and choose the best way to make the computer complete the task.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">An Analogy of Coding</h3>
+
+    <div class="pink-box">
+      <p class="box-text">
+        Coding is like baking a cake. The programmer is the baker, and the recipe is the code. The ingredients are the data and parts the program needs to work with. The oven is like the computer because it follows the instructions and turns them into a finished result.
+      </p>
+
+      <p class="box-text">
+        If the recipe is clear and correct, the cake turns out well. In the same way, if the code is written properly, the app, website, or program works correctly. The finished cake is like the final program that the user can enjoy.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">How Does Coding Work?</h3>
+
+    <div class="pink-box">
+      <p class="box-text">
+        Coding works by giving a computer clear instructions to follow. A coder writes these instructions using a language such as Python, JavaScript, C++, Java, or C#. These languages are easier for humans to read, but computers do not understand them directly.
+      </p>
+
+      <p class="box-text">
+        The code must be translated into machine code, which is made from 0s and 1s. Tools like compilers and interpreters help turn the code into instructions the computer can understand. The computer then follows the instructions step by step.
+      </p>
+
+      <p class="box-text">
+        Coding also involves algorithms, which are step-by-step methods for solving problems. Coders test and debug their code to find mistakes and fix them. This helps make sure the program works properly and does what it is meant to do.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">An Analogy of Programming</h3>
+
+    <div class="pink-box">
+      <p class="box-text">
+        Programming is like giving instructions to a robot to build a LEGO set. The robot is the computer, the instructions are the code, and each LEGO piece is a piece of data. The robot cannot guess what to do, so the instructions must be clear.
+      </p>
+
+      <p class="box-text">
+        If the instructions are wrong, the robot may build something strange or stop working. This is similar to a program crashing when there is a bug. That is why programmers need to write clear instructions and check their work carefully.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">How Does Programming Work?</h3>
+
+    <div class="pink-box">
+      <p class="box-text">
+        Programming starts with a problem that needs to be solved. This could be making a character move in a game, sending a message, storing information, or showing something on a website. The programmer breaks the problem into smaller steps so the computer can follow them.
+      </p>
+
+      <p class="box-text">
+        After planning the steps, the programmer writes the code using a programming language. The computer is very strict, so even a small mistake can stop the program from working. The code is then translated using a compiler or interpreter so the computer can run it.
+      </p>
+
+      <p class="box-text">
+        When the program runs, the computer follows each instruction in order. It can store data, make decisions, check conditions, and show results. If something goes wrong, the programmer tests the program and fixes the errors. This process is called debugging.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">The Programming Process</h3>
+
+    <div class="pink-box">
+      <p class="box-text">
+        Programming usually follows a simple process. First, you plan the design and decide what the program should do. Next, you write the instructions using code. Then, you let the computer run the program and check if it works correctly.
+      </p>
+
+      <p class="box-text">
+        If errors happen, you fix them and test the program again. This cycle repeats until the program works properly. Programming is not only about writing code, it is also about problem solving, planning, testing, and improving the final result.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="banking-title-page scroll-reveal">
+    <h1 class="banking-main-title">Banking Application in Python</h1>
+  </section>
+
+  <section class="banking-info-page scroll-reveal">
+    <h3 class="banking-page-title">Building the User Interface and Menus</h3>
+
+    <div class="purple-box">
+      <p class="box-text">
+        In my banking app, I used the print() function to show the main menu, account details, and messages for the user. This helped the user understand what was happening in the program, such as whether a withdrawal was successful or what options they could choose.
+      </p>
+
+      <p class="box-text">
+        I used the input() function so the user could interact with the app by typing their choices and details. I also used .lower() on some inputs so the program could understand answers like “YES”, “Yes”, or “yes” in the same way. This made the app easier to use and helped prevent simple input errors.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="banking-info-page scroll-reveal">
+    <h3 class="banking-page-title">Handling Money and Transactions</h3>
+
+    <div class="purple-box">
+      <p class="box-text">
+        The input() function reads everything as text, so I used float() to turn money amounts into decimal numbers. This allowed the program to correctly add deposits and subtract withdrawals from the user’s balance.
+      </p>
+
+      <p class="box-text">
+        I used .append() to add a new message to the user’s transaction history whenever they deposited or withdrew money. I also used .get() to safely check if an account was banned. This is useful because if the banned value is missing, the program can still continue without crashing.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="banking-info-page scroll-reveal">
+    <h3 class="banking-page-title">Making the Bank Feel More Realistic</h3>
+
+    <div class="purple-box">
+      <p class="box-text">
+        To make the banking app feel more realistic, I used random.randint() to create an 8-digit account number and a 4-digit PIN for new users. I also used time.sleep() to add a short pause when creating an account, making it feel like the app was loading.
+      </p>
+
+      <p class="box-text">
+        For the savings account, I used threading.Thread() and .start() to run an interest loop in the background. This meant the app could add interest to savings without freezing the main menu. Finally, I used exit() to close the app when the user chose to log out.
+      </p>
+
+      <img src="NTO 3 Coding.gif" alt="NTO 3 Coding Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="banking-info-page scroll-reveal">
+    <h3 class="banking-page-title">My Bank Code</h3>
+
+    <div class="purple-box">
+      <p class="box-text">
+        This is my code click the icon below
+      </p>
+
+      <a 
+        href="https://www.programiz.com/online-compiler/2Iiz8Wo56blIj" 
+        target="_blank" 
+        class="code-icon-link"
+      >
+        <img 
+          src="Icon for NTO 3.gif" 
+          alt="Open My Bank Code" 
+          class="code-icon"
+        >
+      </a>
+    </div>
+
+    <div class="button-row">
+      <a href="unit4.html" class="topic-next-button">NEXT</a>
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

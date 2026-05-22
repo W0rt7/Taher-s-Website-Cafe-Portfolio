@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me</title>
+  <link rel="icon" type="image/gif" href="sleep.gif">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      overflow-x: hidden;
+      background-color: #f6e7c8;
+      font-family: 'Press Start 2P', cursive;
+    }
+
+    .about-page,
+    .game-page {
+      min-height: 100vh;
+      background-color: #f6e7c8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 80px 35px 50px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .return-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .return-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .return-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    .about-title,
+    .game-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2rem;
+      color: #5b351b;
+      text-align: center;
+      margin: 20px 0 40px;
+      text-shadow: 2px 2px 0 rgba(255, 255, 255, 0.7);
+      line-height: 1.5;
+    }
+
+    .about-card,
+    .game-card {
+      max-width: 900px;
+      background-color: rgba(255, 245, 220, 0.9);
+      border: 3px solid rgba(120, 72, 35, 0.75);
+      border-radius: 18px;
+      padding: 35px;
+      box-sizing: border-box;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+      text-align: center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .about-card:hover,
+    .game-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 34px rgba(0, 0, 0, 0.28);
+    }
+
+    .about-img {
+      max-width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto 25px;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .about-img:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.08);
+    }
+
+    .about-text {
+      font-size: 0.62rem;
+      line-height: 2;
+      color: #5b351b;
+      text-align: center;
+      margin: 0;
+    }
+
+    .game-image {
+      max-width: 85%;
+      height: auto;
+      display: block;
+      margin: 0 auto 30px;
+      border-radius: 14px;
+      border: 3px solid rgba(120, 72, 35, 0.75);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.22);
+      transition: transform 0.35s ease, filter 0.35s ease, box-shadow 0.35s ease;
+    }
+
+    .game-image:hover {
+      transform: scale(1.03);
+      filter: brightness(1.08);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .game-text {
+      font-size: 0.7rem;
+      line-height: 1.8;
+      color: #5b351b;
+      text-align: center;
+      margin: 0 0 25px;
+    }
+
+    .game-link {
+      display: inline-block;
+      text-decoration: none;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .game-link:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .game-redirect-img {
+      max-width: 180px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 12px;
+    }
+
+    @media (max-width: 900px) {
+      .about-page,
+      .game-page {
+        padding: 90px 22px 40px;
+      }
+
+      .return-button {
+        top: 15px;
+        left: 15px;
+        font-size: 0.55rem;
+        padding: 12px 18px;
+      }
+
+      .about-title,
+      .game-title {
+        font-size: 1.3rem;
+      }
+
+      .about-card,
+      .game-card {
+        padding: 25px;
+      }
+
+      .about-text {
+        font-size: 0.5rem;
+      }
+
+      .game-text {
+        font-size: 0.55rem;
+      }
+
+      .about-img {
+        max-width: 130px;
+      }
+
+      .game-image {
+        max-width: 95%;
+      }
+
+      .game-redirect-img {
+        max-width: 130px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="about-page">
+    <a href="Index.html" class="return-button">RETURN TO MENU</a>
+
+    <h1 class="about-title">About Me</h1>
+
+    <div class="about-card">
+      <img src="tired.gif" alt="Tired GIF" class="about-img">
+
+      <p class="about-text">
+        Hello, my name is Taher. I wish I could talk about myself longer, but I'm short on time. I love cybersecurity, programming, games and anime. I'm currently learning HTML, CSS and JavaScript with plans to learn back-end development next. Right now I am learning web penetration testing. I'm learning reconnaissance and information gathering, which is gathering information about your target. From there I'll learn satellite hacking, which means I'll be able to capture radio frequency signals, analyse them, decode them and exploit them, for example RF spoofing, in a safe environment. I'll keep learning more attacks too. In the future I want to become a white hat researcher / exploit developer. Anyways, try beat my high score in this game in Scratch. Bye bye.
+      </p>
+    </div>
+  </main>
+
+  <section class="game-page">
+    <h1 class="game-title">Scratch Game</h1>
+
+    <div class="game-card">
+      <img src="Game.png" alt="Scratch Game Preview" class="game-image">
+
+      <p class="game-text">
+        Click this image to go to the game
+      </p>
+
+      <a 
+        href="https://scratch.mit.edu/projects/354714720/fullscreen/" 
+        target="_blank" 
+        class="game-link"
+      >
+        <img src="game redirect.gif" alt="Go to Scratch Game" class="game-redirect-img">
+      </a>
+    </div>
+  </section>
+
+</body>
+</html>

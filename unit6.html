@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 6 - Problem Solving</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1 {
+      min-height: 100vh;
+      background-image: url("White Flower.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .info-page {
+      min-height: 100vh;
+      background-image: url("Green.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: black;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      margin: 45px 0 25px 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .green-box {
+      max-width: 950px;
+      background-color: rgba(64, 145, 92, 0.84);
+      border: 2px solid rgba(190, 255, 210, 0.95);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .green-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      background-color: rgba(64, 145, 92, 0.92);
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.65rem;
+      color: white;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .box-text + .box-text {
+      margin-top: 18px;
+    }
+
+    .binary-table {
+      margin: 24px auto 0;
+      border-collapse: collapse;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.6rem;
+      color: white;
+      text-align: center;
+    }
+
+    .binary-table td {
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      padding: 12px;
+      background-color: rgba(0, 0, 0, 0.18);
+    }
+
+    .topic-icon {
+      display: block;
+      max-width: 230px;
+      height: auto;
+      margin: 32px auto 0;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .topic-icon:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(64, 145, 92, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(40, 125, 70, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .page1,
+      .info-page {
+        padding: 55px 24px 35px;
+      }
+
+      .info-page {
+        background-attachment: scroll;
+      }
+
+      .learn-heading {
+        font-size: 1.3rem;
+      }
+
+      .page-title {
+        font-size: 0.85rem;
+      }
+
+      .box-text {
+        font-size: 0.55rem;
+      }
+
+      .green-box {
+        padding: 24px;
+      }
+
+      .binary-table {
+        font-size: 0.45rem;
+      }
+
+      .binary-table td {
+        padding: 8px;
+      }
+
+      .topic-icon {
+        max-width: 170px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="page1 scroll-reveal">
+    <a href="Index.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <h1 class="main-title">Unit 6 - Problem Solving</h1>
+    <h2 class="learn-heading">What I learnt</h2>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Binary</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Binary is a number system that only uses two digits: 0 and 1. Computers use binary because they work using on and off signals. A 1 can represent on, and a 0 can represent off.
+      </p>
+
+      <p class="box-text">
+        Each binary digit is called a bit. Binary is a base 2 number system, which means it is based on two digits. Computers use binary to store, process, and understand data. For example, 1011 in binary is equal to 11 in decimal.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Decimal</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Decimal is the number system that people use every day. It uses the digits 0 to 9 and is used for things like counting, money, measurements, and time.
+      </p>
+
+      <p class="box-text">
+        Decimal is a base 10 number system because it is based on ten digits. It is easier for humans to read and understand compared to binary. This is why we usually use decimal numbers in everyday life.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Hexadecimal</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Hexadecimal is a number system that uses 0 to 9 and the letters A to F. The letters A to F represent the numbers 10 to 15. Hexadecimal is a base 16 number system.
+      </p>
+
+      <p class="box-text">
+        Hexadecimal is used in computing because it makes long binary numbers shorter and easier to read. Each hexadecimal digit represents four binary bits. For example, A in hexadecimal is equal to 10 in decimal. Hexadecimal is also used for things like colour codes in graphic design and web development.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">What is the Purpose of a Binary Table?</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        The purpose of a binary table is to help people convert numbers between binary, decimal, and hexadecimal. Computers use 0s and 1s, but humans usually find decimal and hexadecimal easier to read.
+      </p>
+
+      <p class="box-text">
+        Professionals use binary tables to convert numbers more quickly and accurately. This can help when checking network addresses, subnet masks, or colour codes in graphics. The table shows the same value in different number systems and helps reduce mistakes.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Binary Table</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        A binary table uses place values. In an 8-bit binary number, the place values are 128, 64, 32, 16, 8, 4, 2, and 1 from left to right.
+      </p>
+
+      <table class="binary-table">
+        <tr>
+          <td>128</td>
+          <td>64</td>
+          <td>32</td>
+          <td>16</td>
+          <td>8</td>
+          <td>4</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+      </table>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Example 1 - Binary to Decimal</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        The binary number being converted is 1100 1111. A network engineer may need to convert this into decimal when checking IP addresses or subnet masks because computers store values in binary, but humans understand decimal more easily.
+      </p>
+
+      <p class="box-text">
+        Each place value is multiplied by the binary digit. So 1 × 128 = 128, 1 × 64 = 64, 0 × 32 = 0, 0 × 16 = 0, 1 × 8 = 8, 1 × 4 = 4, 1 × 2 = 2, and 1 × 1 = 1.
+      </p>
+
+      <p class="box-text">
+        When the values are added together, the answer is 128 + 64 + 8 + 4 + 2 + 1 = 207. This means 1100 1111 in binary is 207 in decimal.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Example 2 - Decimal to Binary</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Decimal to binary conversion is useful because network engineers may need to see which bits are switched on or off. This helps when working with IP addresses, subnetting, and routing.
+      </p>
+
+      <p class="box-text">
+        For example, the decimal number 192 can be converted into binary using the place values 128, 64, 32, 16, 8, 4, 2, and 1. First, 192 - 128 = 64. Then, 64 - 64 = 0.
+      </p>
+
+      <p class="box-text">
+        This means the 128 and 64 columns are switched on, and the rest are switched off. So 192 in decimal is 1100 0000 in binary.
+      </p>
+
+      <table class="binary-table">
+        <tr>
+          <td>128</td>
+          <td>64</td>
+          <td>32</td>
+          <td>16</td>
+          <td>8</td>
+          <td>4</td>
+          <td>2</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+        </tr>
+      </table>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Example 3 - Hexadecimal to Binary</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        The hexadecimal number being converted is 2F. A network engineer might need to convert hexadecimal into binary to understand how the computer processes the value.
+      </p>
+
+      <p class="box-text">
+        Each hexadecimal character represents four binary digits. The hexadecimal value 2 is 0010 in binary. The hexadecimal value F is 1111 in binary.
+      </p>
+
+      <p class="box-text">
+        When they are combined together, 2F in hexadecimal becomes 0010 1111 in binary.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Problem Solving Icon" class="topic-icon">
+    </div>
+
+    <div class="button-row">
+      <a href="unit7.html" class="topic-next-button">NEXT</a>
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 4 - Networking</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1 {
+      min-height: 100vh;
+      background-image: url("autumn.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .info-page {
+      min-height: 100vh;
+      background-image: url("Red.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .cisco-page {
+      min-height: 100vh;
+      background-image: url("Flare.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: black;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      margin: 45px 0 25px 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .cisco-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.5rem;
+      color: white;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
+    }
+
+    .red-box {
+      max-width: 950px;
+      background-color: rgba(160, 45, 45, 0.84);
+      border: 2px solid rgba(255, 190, 190, 0.95);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .red-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      background-color: rgba(160, 45, 45, 0.92);
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.63rem;
+      color: white;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .box-text + .box-text {
+      margin-top: 18px;
+    }
+
+    .layer-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: #ffe6e6;
+      line-height: 1.8;
+      text-align: center;
+      margin: 18px 0 8px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .topic-icon {
+      display: block;
+      max-width: 230px;
+      height: auto;
+      margin: 32px auto 0;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .topic-icon:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .cisco-image {
+      max-width: 80%;
+      max-height: 70vh;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+      object-fit: contain;
+      transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .cisco-image:hover {
+      transform: scale(1.03);
+      filter: brightness(1.08);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(160, 45, 45, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(190, 55, 55, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .page1,
+      .info-page,
+      .cisco-page {
+        padding: 55px 24px 35px;
+      }
+
+      .info-page,
+      .cisco-page {
+        background-attachment: scroll;
+      }
+
+      .learn-heading {
+        font-size: 1.3rem;
+      }
+
+      .page-title,
+      .cisco-title {
+        font-size: 0.85rem;
+      }
+
+      .box-text {
+        font-size: 0.55rem;
+      }
+
+      .layer-title {
+        font-size: 0.58rem;
+      }
+
+      .red-box {
+        padding: 24px;
+      }
+
+      .cisco-image {
+        max-width: 95%;
+        max-height: 65vh;
+      }
+
+      .topic-icon {
+        max-width: 170px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="page1 scroll-reveal">
+    <a href="Index.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <h1 class="main-title">Unit 4 - Networking</h1>
+    <h2 class="learn-heading">What I learnt</h2>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Local Area Network</h3>
+
+    <div class="red-box">
+      <p class="box-text">
+        A Local Area Network, also known as LAN, is a network that connects devices in a small area. This could be inside a home, school, office, or one building. Devices such as computers, laptops, phones, and printers can connect to the same network. In most homes, the devices connect through one router, but in larger buildings there may be more than one router to support more users.
+      </p>
+
+      <p class="box-text">
+        One advantage of LAN is that it is usually cheap and easy to set up. It can also transfer data quickly between devices, which helps when sharing large files or backing up data. Software and resources can also be shared across the local network. However, LAN has a limited range and is mainly useful in one building. It can also slow down if too many devices are connected, and it is not designed for sending data over long distances.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Wireless Local Area Network</h3>
+
+    <div class="red-box">
+      <p class="box-text">
+        A Wireless Local Area Network, also known as WLAN, is similar to a LAN but it connects devices wirelessly. It uses radio waves instead of lots of cables. WLAN is commonly used in homes, schools, cafes, and offices because people can connect laptops, phones, and tablets without needing a wired connection. Devices only need to be within the wireless range to connect.
+      </p>
+
+      <p class="box-text">
+        One advantage of WLAN is that it is simple to set up and gives users more freedom to move around. It can also be cheaper because fewer cables are needed. WLAN can support many devices and makes it easier for people to access the internet. However, because it is wireless, it can be more vulnerable to hacking if it is not secured properly. It can also be affected by interference, weak signals, and too many devices using the network at the same time.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Personal Area Network</h3>
+
+    <div class="red-box">
+      <p class="box-text">
+        A Personal Area Network, also known as PAN, is a small network used around one person. It usually has a short range, often around ten metres. A common example is Bluetooth, such as connecting wireless earphones to a phone, a phone to a speaker, or a computer to a printer. PAN is useful for connecting personal devices quickly.
+      </p>
+
+      <p class="box-text">
+        One advantage of PAN is that it is flexible and easy to use. Many devices can connect automatically without much setup, especially with Bluetooth. It can also be fairly secure when encryption is used. However, PAN has a short range and can be unreliable if the connection is weak. It also depends on the devices being close together and does not work well for sharing data across large areas or to many devices at once.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">OSI Model 7 Layer Model</h3>
+
+    <div class="red-box">
+      <h4 class="layer-title">Layer 1: Physical Layer</h4>
+      <p class="box-text">
+        The Physical Layer is about the hardware and how data physically moves. It sends raw bits, which are 1s and 0s, through cables, fibre optics, or Wi-Fi signals. It is basically the electrical or wireless signal that carries data from one device to another.
+      </p>
+
+      <h4 class="layer-title">Layer 2: Data Link Layer</h4>
+      <p class="box-text">
+        The Data Link Layer takes the bits and puts them into small packages called frames. It also checks for errors so data can travel correctly between two directly connected devices. It is like putting a letter into the correct envelope with the correct address.
+      </p>
+
+      <h4 class="layer-title">Layer 3: Network Layer</h4>
+      <p class="box-text">
+        The Network Layer decides the path data should take to reach the correct location. It uses addresses like IP addresses to find the best route across different networks.
+      </p>
+
+      <h4 class="layer-title">Layer 4: Transport Layer</h4>
+      <p class="box-text">
+        The Transport Layer makes sure data gets to the correct place. It splits large messages into smaller parts and puts them back together at the end. If some parts are missing or arrive in the wrong order, it helps fix the problem.
+      </p>
+
+      <h4 class="layer-title">Layer 5: Session Layer</h4>
+      <p class="box-text">
+        The Session Layer manages communication between applications. It starts, controls, and ends connections so apps can talk to each other properly without confusion.
+      </p>
+
+      <h4 class="layer-title">Layer 6: Presentation Layer</h4>
+      <p class="box-text">
+        The Presentation Layer changes data into a format the receiving application can understand. It can also handle encryption and conversion so data is readable and secure.
+      </p>
+
+      <h4 class="layer-title">Layer 7: Application Layer</h4>
+      <p class="box-text">
+        The Application Layer is the layer users see and use. It includes things like web browsers, games, and apps that send or receive data over a network. It lets users access network services without needing to understand all the layers below.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Transmission Control Protocol</h3>
+
+    <div class="red-box">
+      <p class="box-text">
+        Transmission Control Protocol, also known as TCP, is a communication standard used to send data across a network. TCP breaks data into smaller packets and sends them to the correct location. It makes sure the packets arrive successfully and in the correct order.
+      </p>
+
+      <p class="box-text">
+        If any packets are missing, TCP automatically sends them again. TCP also uses a process called a three-way handshake, which creates a reliable connection between two devices before data is sent. This makes TCP very reliable, but it can be slower than other protocols. It is often used for web browsing, file transfers, and emails.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Internet Control Message Protocol</h3>
+
+    <div class="red-box">
+      <p class="box-text">
+        Internet Control Message Protocol, also known as ICMP, is a network layer protocol found in Layer 3 of the OSI Model. It works with IP and is used by network devices such as routers and hosts to send control messages, error messages, and status information about the network.
+      </p>
+
+      <p class="box-text">
+        ICMP helps identify network problems such as routing issues, timeouts, or devices that cannot be reached. If a message cannot be delivered, ICMP can send an error message back to explain what went wrong. Tools like ping and traceroute use ICMP to test connections and track the path data takes. This makes ICMP important for troubleshooting network faults.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="cisco-page scroll-reveal">
+    <h3 class="cisco-title">Cisco Packet Tracer</h3>
+
+    <img 
+      src="Cisco Packet Tracer.png" 
+      alt="Cisco Packet Tracer Network Screenshot" 
+      class="cisco-image"
+    >
+  </section>
+
+  <section class="cisco-page scroll-reveal">
+    <h3 class="cisco-title">What Went Well</h3>
+
+    <div class="red-box">
+      <p class="box-text">
+        The planning, design and building of the network on Cisco Packet Tracer for Horizon Technical College went well overall. I successfully met all the requirements given by the client. In the planning stage, I used Visio to create the diagram of the network, showing the 5 PCs and 1 printer in each office connected to a switch, and all three switches connected to a central router. This helped me plan how everything would be connected before building it.
+      </p>
+
+      <p class="box-text">
+        In the design stage, I assigned IP addresses to all PCs and printers in each room. I made sure each office had its own subnet, such as 192.168.1.0, 192.168.2.0 and 192.168.3.0. I also set a default gateway for each room so the devices could communicate through the router. This allowed me to successfully ping the devices and keep the network organised.
+      </p>
+
+      <p class="box-text">
+        During the building and testing stage, I connected all the devices in each room to their switches and then connected the switches to the router. I tested the network using ping commands and confirmed that all PCs and printers could communicate with each other successfully.
+      </p>
+
+      <p class="box-text">
+        Overall, the network is suitable for Horizon Technical College because it is reliable and meets all the client requirements. It can also be expanded in the future by adding more devices without needing to redesign the whole system.
+      </p>
+
+      <img src="Networking.gif" alt="Networking Icon" class="topic-icon">
+    </div>
+
+    <div class="button-row">
+      <a href="unit5.html" class="topic-next-button">NEXT</a>
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

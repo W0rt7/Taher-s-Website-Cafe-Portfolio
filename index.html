@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taher's Cafe</title>
+  <link rel="icon" type="image/gif" href="sleep.gif">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    #music-btn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      z-index: 9999;
+      padding: 14px 22px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.65rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      cursor: pointer;
+      animation: musicFlash 1.2s infinite ease-in-out;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    #music-btn:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    #music-btn:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes musicFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    #music-player {
+      position: fixed;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      left: -9999px;
+      top: -9999px;
+    }
+
+    #music-player iframe {
+      width: 1px;
+      height: 1px;
+      border: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<button id="music-btn" onclick="toggleMusic()">▶ MUSIC</button>
+
+<div id="music-player">
+  <iframe
+    id="youtube-music"
+    src="https://www.youtube.com/embed/53gNFOqDFcE?enablejsapi=1&loop=1&playlist=53gNFOqDFcE"
+    title="Background Music"
+    allow="autoplay"
+  ></iframe>
+</div>
+
+<!-- Start screen -->
+<div id="start-screen" class="dot-bg" style="background-image: url('start screen.gif'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+  <h1 class="start-title">Taher's Cafe</h1>
+  <p class="start-tagline">Welcome to Taher's Cafe</p>
+  <button id="start-btn" onclick="startPortfolio()">▶ &nbsp;START</button>
+</div>
+
+<div id="portfolio" class="dot-bg" style="display:none">
+
+  <nav>
+    <span class="nav-title">
+      <img src="sleep.gif" alt="mascot" class="nav-mascot"> Taher's Cafe
+    </span>
+
+    <div class="nav-links">
+      <a href="#menu">[ Menu ]</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="cafe-scene">
+      <img src="tokumei%20%F0%9F%95%8A%EF%B8%8F%20crane%20artist.gif" alt="Teas Cafe pixel art scene">
+    </div>
+
+    <div class="welcome-card">
+      <h2 class="welcome-title">Welcome to Taher's Cafe</h2>
+    </div>
+
+    <section id="menu">
+      <h2 class="section-title">Menu</h2>
+
+      <div class="menu-grid">
+
+        <a href="nto1.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="%20.gif" alt="NTO 1 - Data">
+            <span class="menu-item-name">☕ NTO 1 - Data</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="nto2.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="piece%20of%20chocolate%20cake%20in%20pixel%20art%20style.jpg" alt="NTO 2 - Cyber Security">
+            <span class="menu-item-name">🍫 NTO 2 - Cyber Security</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="nto3.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="%D0%9C%D0%BE%D1%80%D0%BE%D0%B6%D0%B5%D0%BD%D0%BE%D0%B5%20%D0%BF%D0%B8%D0%BA%D1%81%D0%B5%D0%BB%D1%8C%20%D0%B0%D1%80%D1%82.jpg" alt="NTO 3 - Coding">
+            <span class="menu-item-name">🍦 NTO 3 - Coding</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="unit4.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="%20-4.gif" alt="Unit 4 - Networking">
+            <span class="menu-item-name">🍰 Unit 4 - Networking</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="unit5.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="once%20a%20wildcat%20always%20a%20wildcat%20%E2%9D%A4%20liked%20on%20Polyvore.jpg" alt="Unit 5 - Hardware">
+            <span class="menu-item-name">🍨 Unit 5 - Hardware</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="unit6.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="%20-6.jpg" alt="Unit 6 - Problem Solving">
+            <span class="menu-item-name">🥤 Unit 6 - Problem Solving</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="unit7.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="%20-5.gif" alt="Unit 7 - Digital Employability">
+            <span class="menu-item-name">🥞 Unit 7 - Digital Employability</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+        <a href="aboutme.html" class="menu-item-link">
+          <div class="menu-item">
+            <img src="Cookie.gif" alt="About Me">
+            <span class="menu-item-name">BEST ITEM -  About Me</span>
+            <span class="menu-item-price"></span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section id="about" class="about-section">
+      <div class="about-inner">
+        <img src="sleep.gif" alt="mascot" class="about-mascot">
+
+        <div class="about-text">
+          <h2 class="section-title">About</h2>
+          <p>
+            I decided to make a Lo-Fi styled cafe website to showcase my work. I used HTML, JavaScript and CSS to make this. This took me a long time to make so I hope you enjoy it.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>Taher's Cafe &copy; 2026</footer>
+</div>
+
+<script src="script.js"></script>
+
+<script>
+  let player;
+  let musicPlaying = false;
+
+  const tag = document.createElement("script");
+  tag.src = "https://www.youtube.com/iframe_api";
+  document.body.appendChild(tag);
+
+  function onYouTubeIframeAPIReady() {
+    player = new YT.Player("youtube-music");
+  }
+
+  function toggleMusic() {
+    const button = document.getElementById("music-btn");
+
+    if (!player) {
+      return;
+    }
+
+    if (musicPlaying === false) {
+      player.playVideo();
+      musicPlaying = true;
+      button.textContent = "⏸ MUSIC";
+    } else {
+      player.pauseVideo();
+      musicPlaying = false;
+      button.textContent = "▶ MUSIC";
+    }
+  }
+</script>
+
+</body>
+</html>

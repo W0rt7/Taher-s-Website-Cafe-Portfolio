@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 5 - Hardware</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1 {
+      min-height: 100vh;
+      background-image: url("pixelins.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .info-page {
+      min-height: 100vh;
+      background-image: url("Blue.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: black;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      margin: 45px 0 25px 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .blue-box {
+      max-width: 950px;
+      background-color: rgba(67, 123, 190, 0.84);
+      border: 2px solid rgba(200, 225, 255, 0.95);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .blue-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      background-color: rgba(67, 123, 190, 0.92);
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.63rem;
+      color: white;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .box-text + .box-text {
+      margin-top: 18px;
+    }
+
+    .topic-icon {
+      display: block;
+      max-width: 230px;
+      height: auto;
+      margin: 32px auto 0;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .topic-icon:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(67, 123, 190, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(45, 100, 170, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .page1,
+      .info-page {
+        padding: 55px 24px 35px;
+      }
+
+      .info-page {
+        background-attachment: scroll;
+      }
+
+      .learn-heading {
+        font-size: 1.3rem;
+      }
+
+      .page-title {
+        font-size: 0.85rem;
+      }
+
+      .box-text {
+        font-size: 0.55rem;
+      }
+
+      .blue-box {
+        padding: 24px;
+      }
+
+      .topic-icon {
+        max-width: 170px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="page1 scroll-reveal">
+    <a href="Index.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <h1 class="main-title">Unit 5 - Hardware</h1>
+    <h2 class="learn-heading">What I learnt</h2>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">CPU</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        The CPU, which stands for Central Processing Unit, is like the brain of the computer. It is one of the most important parts because it controls how the computer works. When you open an app, browse the internet, or play a game, the CPU processes the instructions and decides what needs to happen next.
+      </p>
+
+      <p class="box-text">
+        The CPU works step by step. It reads instructions from programs, processes information, and sends commands to other parts of the computer. It also works with devices like the keyboard, mouse, and monitor so the computer can respond to what the user does.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Motherboard</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        The motherboard is the main circuit board inside a computer. It connects all the important components together, such as the CPU, RAM, storage, and graphics card. Without the motherboard, these parts would not be able to communicate or work together properly.
+      </p>
+
+      <p class="box-text">
+        The motherboard also helps send power and signals between the components. It allows data to move around the computer so everything can run smoothly. This makes it one of the most important parts of a computer system.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">RAM</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        RAM stands for Random Access Memory. It is temporary memory that stores data and instructions while the computer is turned on. For example, when you open a web browser, app, or game, the data is loaded into RAM so the CPU can access it quickly.
+      </p>
+
+      <p class="box-text">
+        RAM only stores information while the computer is running. When the computer is turned off, everything stored in RAM is erased. The more RAM a computer has, the more programs it can run at the same time without slowing down.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Storage Device</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        A storage device is used to save files, data, and programs. It stores things like pictures, videos, music, documents, games, and apps. Unlike RAM, the information stays saved even when the computer is turned off.
+      </p>
+
+      <p class="box-text">
+        Common storage devices include hard drives, solid state drives, and USB sticks. Without storage, a computer would not be able to keep your files or programs. Storage devices allow users to save data and open it again later.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Power Supply Unit</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        The Power Supply Unit, also known as the PSU, provides power to every component inside the computer. It takes electricity from the wall and changes it into a safer amount that the computer parts can use.
+      </p>
+
+      <p class="box-text">
+        The PSU has cables that connect to parts such as the motherboard, CPU, storage, and graphics card. Without the PSU, the computer would not turn on. It can also help protect the computer from power problems, such as surges, by controlling the electricity sent to the components.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Graphics Processing Unit</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        The GPU, which stands for Graphics Processing Unit, helps the computer display images, videos, animations, and games on the screen. It is important for making graphics look smooth, clear, and high quality.
+      </p>
+
+      <p class="box-text">
+        The GPU receives information from the CPU and turns it into images that can be shown on the monitor. This is especially useful for gaming, video editing, animation, and other tasks that need strong graphics performance.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Computer Cooling System</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        The computer cooling system keeps the parts inside the computer from getting too hot. Components like the CPU, GPU, and RAM can produce heat when the computer is working hard. If the computer gets too hot, it can slow down or become damaged.
+      </p>
+
+      <p class="box-text">
+        Cooling systems usually use fans to bring cool air in and push hot air out. Some computers may also use liquid cooling. The cooling system helps keep the computer at a safe temperature so it can run properly for longer.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Various Health and Safety Measures When Deconstructing a PC</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        When working as a trainee or a full-time technician, it is important to follow strict health and safety rules. These rules help protect both the technician and the computer equipment from harm.
+      </p>
+
+      <p class="box-text">
+        Following health and safety measures reduces the risk of accidents and stops components from being damaged. The main safety measures include electrostatic discharge protection, power and electrical safety, manual handling, and keeping the workspace safe and organised.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Electrostatic Discharge Safety</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Electrostatic discharge, also known as ESD, is one of the most important risks when building or deconstructing a PC. ESD happens when static electricity builds up on a person’s body and then transfers onto computer components.
+      </p>
+
+      <p class="box-text">
+        This can damage sensitive parts of the computer, even if the shock is too small for a person to feel. To prevent this, technicians should wear an anti-static wrist strap and work on an anti-static mat. They should also avoid clothing that creates static, such as wool.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Power and Electrical Safety</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Power and electrical safety is important because computer components can cause injury if they are handled incorrectly. Before opening a computer case, the technician should make sure the device is fully powered down and unplugged from the wall socket.
+      </p>
+
+      <p class="box-text">
+        Some parts, such as the power supply unit, may still hold electricity even after being unplugged. Technicians should never work on a PC that is turned on unless they are trained and have permission. These precautions help protect the technician and prevent damage to the computer.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Safe Workspace and Environment</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        A safe and organised workspace is important when building or deconstructing a PC. The area should be clean, dry, and well-lit so the technician can clearly see what they are doing and avoid accidents.
+      </p>
+
+      <p class="box-text">
+        A tidy workspace also helps prevent tools or components from being lost, stepped on, or damaged. Food and drinks should be kept away from the workspace to avoid spills. Temperature and humidity should also be controlled because extreme conditions can affect both the technician and the computer components.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Manual Handling</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Manual handling safety is important because technicians may need to move heavy equipment such as desktops, monitors, and servers. Lifting incorrectly can cause back injuries, muscle strain, or long-term damage.
+      </p>
+
+      <p class="box-text">
+        Technicians should use correct lifting methods, such as bending their knees and keeping their back straight. For heavy items, it is safer to work with another person or use a trolley. This helps protect the technician from injury and prevents computer equipment from being dropped or damaged.
+      </p>
+
+      <img src="Icon for hardware.gif" alt="Hardware Icon" class="topic-icon">
+    </div>
+
+    <div class="button-row">
+      <a href="unit6.html" class="topic-next-button">NEXT</a>
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

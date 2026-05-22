@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit 7 - Digital Employability</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1 {
+      min-height: 100vh;
+      background-image: url("Blue Flower Gif.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .info-page {
+      min-height: 100vh;
+      background-image: url("Blue Flower.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: black;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      margin: 45px 0 25px 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+    }
+
+    .blue-box {
+      max-width: 950px;
+      background-color: rgba(60, 120, 190, 0.84);
+      border: 2px solid rgba(205, 230, 255, 0.95);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .blue-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      background-color: rgba(60, 120, 190, 0.92);
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.63rem;
+      color: white;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .box-text + .box-text {
+      margin-top: 18px;
+    }
+
+    .topic-icon {
+      display: block;
+      max-width: 230px;
+      height: auto;
+      margin: 32px auto 0;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .topic-icon:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(60, 120, 190, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(40, 95, 170, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .page1,
+      .info-page {
+        padding: 55px 24px 35px;
+      }
+
+      .info-page {
+        background-attachment: scroll;
+      }
+
+      .learn-heading {
+        font-size: 1.3rem;
+      }
+
+      .page-title {
+        font-size: 0.85rem;
+      }
+
+      .box-text {
+        font-size: 0.55rem;
+      }
+
+      .blue-box {
+        padding: 24px;
+      }
+
+      .topic-icon {
+        max-width: 170px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="page1 scroll-reveal">
+    <a href="Taher's.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <h1 class="main-title">Unit 7 - Digital Employability</h1>
+    <h2 class="learn-heading">What I learnt</h2>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Networking</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Networking means building relationships with other people to help with career advice, job opportunities, and future work. This can include talking to friends, family, colleagues, teachers, or industry professionals. Networking can happen online or in person at events. The main goal is to make useful connections that can help you learn more about careers and find possible job opportunities.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Referrals</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Referrals are when someone recommends another person for a job role in a company. This can help employers find good candidates more quickly because the person has already been suggested by someone they trust. Referrals can also help job seekers because they may have a better chance of being noticed. Companies like referrals because referred candidates are often more suitable and may stay in the company longer.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Job Boards</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Job boards are online websites where employers can post job vacancies and job seekers can search for work. They act like a digital marketplace for jobs. People looking for work can search by job title, location, salary, or industry. Employers and recruiters can also use job boards to find candidates. This makes job boards useful for both companies and people applying for jobs.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Job Fairs</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Job fairs are events where employers and recruiters meet people who are looking for work. Companies usually set up booths and explain what jobs or career paths they offer. Job seekers can speak to employers face to face, ask questions, and learn more about different companies. This can help people make a stronger impression because employers can remember their name and personality better than from an online application alone.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Cold Calling</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Cold calling is when someone contacts a company directly to ask if they have any jobs available. This can be useful when jobs are not advertised online. Even if there are no current vacancies, it can show the company that the person is eager, confident, and interested. Cold calling can also help job seekers find hidden opportunities that may not be posted on job boards.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Headhunting</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Headhunting is when a recruiter or company directly approaches someone because they believe the person is a strong candidate for a job. This usually happens for senior roles or specialist jobs where certain skills and experience are needed. Instead of waiting for people to apply, the recruiter searches for the right person. Headhunting can be useful because it helps companies find highly skilled workers.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Temping Job</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        A temping job is a short-term job that lasts for a limited amount of time. It can help people gain work experience, learn new skills, and build relationships with employers. Sometimes, a temporary job can lead to a permanent role if the employer is happy with the worker. Temping is useful for people who want experience or need work while looking for a long-term job.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Cold Emailing</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        Cold emailing is when someone sends an email to a company even if the company has not advertised a specific job. The email usually introduces the person, explains their skills, and asks about possible opportunities. A well-written cold email can help make a good first impression. It can also show that the person is motivated and interested in working for the company.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">My Preferred Method</h3>
+
+    <div class="blue-box">
+      <p class="box-text">
+        My preferred method is job fairs because they allow you to speak to employers face to face. This is useful because you can ask questions, learn about different companies, and understand what career paths are available. Job fairs also help you make a memorable impression because recruiters can see your confidence, communication skills, and interest in the role.
+      </p>
+
+      <p class="box-text">
+        Job fairs are also helpful because many companies attend the same event, giving you access to different job opportunities in one place. This increases your chances of finding a role that matches your skills and interests. I think job fairs are one of the best methods because they combine networking, career research, and direct contact with employers.
+      </p>
+
+      <img src="Job.gif" alt="Job Icon" class="topic-icon">
+    </div>
+
+    <div class="button-row">
+      <a href="index.html" class="topic-next-button">FINISH</a>
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

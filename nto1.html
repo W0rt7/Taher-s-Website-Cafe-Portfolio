@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTO 1 - Data</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1-container {
+      min-height: 100vh;
+      background-image: url('%20-6.gif');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .page-content {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 90px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .page1-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: #333;
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: normal;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+      margin: 45px 0 25px 0;
+      text-align: center;
+    }
+
+    .boxes-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+      padding: 0 40px;
+      margin-top: 10px;
+    }
+
+    .content-box {
+      background-color: rgba(255, 192, 203, 0.4);
+      backdrop-filter: blur(2px);
+      border-radius: 10px;
+      padding: 30px;
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      border: 2px solid rgba(255, 192, 203, 0.6);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+    }
+
+    .content-box:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 192, 203, 0.5);
+    }
+
+    .box-title {
+      font-family: 'Dancing Script', cursive;
+      font-size: 2rem;
+      color: white;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      text-align: center;
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.68rem;
+      color: white;
+      line-height: 1.6;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+      text-align: center;
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+
+    .next-button {
+      margin-top: 30px;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.8rem;
+      background-color: rgba(255, 192, 203, 0.8);
+      color: white;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+      animation: flash 0.8s infinite;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    @keyframes flash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.65;
+      }
+    }
+
+    .next-button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 170, 195, 0.9);
+    }
+
+    .next-button:active {
+      transform: scale(0.95);
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: center;
+      padding: 0 40px;
+      margin-top: 20px;
+    }
+
+    .page2,
+    .page3,
+    .page4 {
+      min-height: 100vh;
+      background-color: white;
+      background-image: url("background.jpg");
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 60px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .page2-content,
+    .page3-content,
+    .page4-content {
+      text-align: center;
+      max-width: 1000px;
+      width: 100%;
+      padding: 20px 40px;
+      position: relative;
+      z-index: 2;
+      box-sizing: border-box;
+    }
+
+    .page2-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 2rem;
+      color: #333;
+      font-weight: normal;
+      text-align: center;
+      margin: 0 0 35px 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+    }
+
+    .cleansing-image {
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .page3-image {
+      max-width: 55%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      border-radius: 10px;
+      transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .cleansing-image:hover,
+    .page3-image:hover,
+    .page4-image:hover {
+      transform: scale(1.03);
+      filter: brightness(1.08);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
+    }
+
+    .page4-text-box {
+      margin: 0 auto 25px;
+      max-width: 950px;
+      background-color: rgba(255, 255, 255, 0.78);
+      border: 2px solid rgba(173, 216, 230, 0.9);
+      border-radius: 12px;
+      padding: 25px 30px;
+      box-sizing: border-box;
+      transition: transform 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
+    }
+
+    .page4-text-box:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25);
+      background-color: rgba(255, 255, 255, 0.86);
+    }
+
+    .page4-text-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1rem;
+      color: #333;
+      text-align: center;
+      margin: 0 0 25px 0;
+      line-height: 1.7;
+    }
+
+    .page4-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.62rem;
+      color: #333;
+      line-height: 1.8;
+      text-align: left;
+      margin: 0 0 18px 0;
+    }
+
+    .page4-image {
+      max-width: 140px;
+      height: auto;
+      display: block;
+      margin: 0 auto 25px;
+      transition: transform 0.4s ease, filter 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(255, 120, 170, 0.88);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(255, 90, 150, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .boxes-container {
+        grid-template-columns: 1fr;
+      }
+
+      .page-content {
+        padding-top: 50px;
+      }
+
+      .page2,
+      .page3,
+      .page4 {
+        background-size: contain;
+        padding-top: 40px;
+      }
+
+      .cleansing-image,
+      .page3-image {
+        max-width: 95%;
+      }
+
+      .page4-text {
+        font-size: 0.55rem;
+      }
+
+      .page4-image {
+        max-width: 110px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page1-container scroll-reveal">
+    <a href="Index.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <div class="page-content">
+      <h1 class="page1-title">NTO 1 - Data</h1>
+      <h2 class="learn-heading">What I learnt</h2>
+
+      <div class="boxes-container">
+        <div class="content-box">
+          <h3 class="box-title" id="title1">The DIKW</h3>
+          <p class="box-text" id="text1">DIKW stands for Data, Information, Knowledge and Wisdom. It shows how random numbers and unprocessed information can become useful. Data is mainly just raw facts without meaning and context. When we organise data and understand what it means, it then becomes information. When we learn, understand information and know how to use it, that will become knowledge. Wisdom is when we use what we know to make the best choices. This model can help us explain how we can use starting from raw data turning them into smart decisions</p>
+        </div>
+
+        <div class="content-box">
+          <h3 class="box-title" id="title2">The 4Vs</h3>
+          <p class="box-text" id="text2">The 4Vs are a way to understand what makes big data different from regular data. They focus on how much data there is (Volume), how fast its created (Velocity), the different types of data (Variety) and how accurate or reliable it is (Veracity). Looking at data using the 4Vs helps businesses and analysts' handle large datasets more efficiently.</p>
+        </div>
+      </div>
+
+      <div class="button-container">
+        <button class="next-button" onclick="transitionContent()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="page2 scroll-reveal">
+    <div class="page2-content">
+      <h1 class="page2-title">Cleansing Data</h1>
+
+      <img 
+        src="Screenshot 2026-05-20 at 14.38.47.png" 
+        alt="Cleansing Data Screenshot" 
+        class="cleansing-image"
+      >
+    </div>
+  </div>
+
+  <div class="page3 scroll-reveal">
+    <div class="page3-content">
+      <img 
+        src="Data.png" 
+        alt="Cleaned Data Screenshot" 
+        class="page3-image"
+      >
+    </div>
+  </div>
+
+  <div class="page4 scroll-reveal">
+    <div class="page4-content">
+      <img 
+        src="𝐘𝐚𝐦𝐚𝐝𝐚 𝐑𝐲𝐨𝐮.png" 
+        alt="Yamada Ryou" 
+        class="page4-image"
+      >
+
+      <div class="page4-text-box">
+        <h2 class="page4-text-title">How I Cleaned the Data</h2>
+
+        <p class="page4-text">
+          I cleaned the data using Excel by first looking through the survey responses to find any errors. I corrected spelling mistakes such as the shop names for example correcting “Tescoo” to “Tesco” and fixing missing letters in “Gregs” to “Greggs”. This made sure all responses could be counted correctly.
+        </p>
+
+        <p class="page4-text">
+          I also checked that the Yes and No responses didn't have any spelling mistakes and easy to read. I used conditional formatting to apply colour so that any cell which is “Yes” are green and any cell which is red appear red. This doesn't change the data itself but makes the responses easier and clear to read. This helped me quickly analyse how many people answered Yes or No and reduced the chances of misinterpreting the data.
+        </p>
+
+        <p class="page4-text">
+          To calculate the totals, I used the function =COUNTIF on the response columns. This allowed me to count how many “Yes” or “No” appeared in each column. Using the formulas increased accuracy and if any of the data changed the results would update automatically.
+        </p>
+
+        <p class="page4-text">
+          Finally, I reviewed the dataset to make sure that they were all correctly formatted, confirming the data was clean and ready for analysis and visualisation.
+        </p>
+      </div>
+
+      <div class="button-row">
+        <a href="nto2.html" class="topic-next-button">NEXT</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentPage = 0;
+
+    const content = {
+      0: {
+        title1: "The DIKW",
+        text1: "DIKW stands for Data, Information, Knowledge and Wisdom. It shows how random numbers and unprocessed information can become useful. Data is mainly just raw facts without meaning and context. When we organise data and understand what it means, it then becomes information. When we learn, understand information and know how to use it, that will become knowledge. Wisdom is when we use what we know to make the best choices. This model can help us explain how we can use starting from raw data turning them into smart decisions",
+        title2: "The 4Vs",
+        text2: "The 4Vs are a way to understand what makes big data different from regular data. They focus on how much data there is (Volume), how fast its created (Velocity), the different types of data (Variety) and how accurate or reliable it is (Veracity). Looking at data using the 4Vs helps businesses and analysts' handle large datasets more efficiently."
+      },
+
+      1: {
+        title1: "Data Classification",
+        text1: "Data classification is the process of organising data into categories or groups, so it becomes easier to manage and use. Examples of data classifications are structured, unstructured, qualitative and quantitative, which are different types of ways of displaying data.",
+        title2: "Primary and Secondary Data",
+        text2: "Primary data is information collected directly by a researcher for a specific purpose. It is original and has not been gathered or analysed before. This type of data is created to answer questions and solve problems, making the information very relevant and Secondary data is information that has already been collected and processed. Instead of gathering the data first, researchers use what is already available through sources like reports and publications."
+      },
+
+      2: {
+        title1: "What is Data?",
+        text1: "In the DIKW model, data is raw, unprocessed data that is not organised with lack of context or any meaning on their own. It serves as a starting point of the pyramid, representing symbols and signals. Data by itself doesn't provide clarity until it is collected then organised and then interpreted to form the information. Data can come in many different forms and from different sources, but without proper context or analysis, it remains meaningless simply nothing.",
+        title2: "What is Information?",
+        text2: "Information is created when raw data is processed then organised, and given context, making the unorganised data something important that can help people easily understand what is happening or what has happened. This process involves categorising, and interpreting data to answer questions like who, what, where, and when, providing more clarity to understand the data."
+      },
+
+      3: {
+        title1: "What is Knowledge?",
+        text1: "Knowledge is the understanding gained from processing and interpreting information, often through experience, learning, or reflection. It involves recognising patterns and making decisions to solve problems. In the DIKW hierarchy, knowledge serves as a 'middleman' between information and wisdom, turning the organised information into important information that we can use in our day-to-day lives.",
+        title2: "What is Wisdom?",
+        text2: "Wisdom is the pinnacle of the DIKW hierarchy, representing the ability to apply knowledge accurately to make the best decisions that consider long-term goals. It involves not just knowing what to do but understanding why and how we do it. It is not about possessing information or knowledge but about making good judgments in applying that knowledge to achieve outcomes while reducing harm and risk."
+      },
+
+      4: {
+        title1: "What is Volume?",
+        text1: "Volume is the huge amount of data that organisations need to collect every day from sources like websites, apps, social media and smart devices. In big data, it can be so much to the point it can reach up to terabytes or even petabytes, this makes storing and managing the data a big challenge.",
+        title2: "What is Velocity?",
+        text2: "Velocity is the speed at which data is created, collected and processed. Today, data comes in constantly from places like social media, financial transactions, sensors and smart devices. Handling this fast flow of information well is important, especially companies that need to make quick decisions."
+      },
+
+      5: {
+        title1: "What is Variety?",
+        text1: "Variety is about the different types of data that organisations use. This includes structured data like databases, semi-structured data like emails or XML files, and unstructured data like social media posts, videos, etc. In big data, variety is important because useful information can come from many sources and formats.",
+        title2: "What is Veracity?",
+        text2: "Veracity means how accurate, reliable and trustworthy the data is. Not all data is perfect as some can be wrong, outdated or missing information. In big data, where information comes from many places, it's important to keep data accurate so decisions are based on the right information."
+      }
+    };
+
+    function transitionContent() {
+      const title1 = document.getElementById('title1');
+      const text1 = document.getElementById('text1');
+      const title2 = document.getElementById('title2');
+      const text2 = document.getElementById('text2');
+
+      title1.classList.add('fade-out');
+      text1.classList.add('fade-out');
+      title2.classList.add('fade-out');
+      text2.classList.add('fade-out');
+
+      setTimeout(() => {
+        currentPage++;
+
+        if (currentPage > 5) {
+          currentPage = 0;
+        }
+
+        title1.textContent = content[currentPage].title1;
+        text1.textContent = content[currentPage].text1;
+        title2.textContent = content[currentPage].title2;
+        text2.textContent = content[currentPage].text2;
+
+        title1.classList.remove('fade-out');
+        text1.classList.remove('fade-out');
+        title2.classList.remove('fade-out');
+        text2.classList.remove('fade-out');
+      }, 800);
+    }
+
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>

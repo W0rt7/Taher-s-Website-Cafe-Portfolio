@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NTO 2 - Cyber Security</title>
+  <link rel="icon" type="image/jpeg" href="%20.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      height: auto;
+      background: white;
+    }
+
+    .page1 {
+      min-height: 100vh;
+      background-image: url("Waterfall.gif");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .top-left-menu-button {
+      position: absolute;
+      top: 25px;
+      left: 25px;
+      z-index: 10;
+    }
+
+    .info-page {
+      min-height: 100vh;
+      background-image: url("grass.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      padding: 90px 40px 40px;
+      box-sizing: border-box;
+    }
+
+    .main-title {
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      text-align: center;
+      font-weight: normal;
+      color: black;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    }
+
+    .learn-heading {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.8rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      margin: 45px 0 25px 0;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    }
+
+    .page-title {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 1.1rem;
+      color: black;
+      font-weight: normal;
+      text-align: center;
+      line-height: 1.7;
+      margin: 0 0 35px 0;
+      max-width: 1000px;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+    }
+
+    .green-box {
+      max-width: 950px;
+      background-color: rgba(64, 145, 92, 0.82);
+      border: 2px solid rgba(190, 255, 210, 0.9);
+      border-radius: 14px;
+      padding: 30px 35px;
+      box-sizing: border-box;
+      backdrop-filter: blur(2px);
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background-color 0.4s ease;
+    }
+
+    .green-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      background-color: rgba(64, 145, 92, 0.9);
+    }
+
+    .box-text {
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.65rem;
+      color: white;
+      line-height: 1.9;
+      text-align: center;
+      margin: 0;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .topic-icon {
+      display: block;
+      max-width: 230px;
+      height: auto;
+      margin: 32px auto 0;
+      border-radius: 12px;
+      transition: transform 0.35s ease, filter 0.35s ease;
+    }
+
+    .topic-icon:hover {
+      transform: scale(1.08) translateY(-4px);
+      filter: brightness(1.1);
+    }
+
+    .button-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-top: 35px;
+    }
+
+    .topic-next-button {
+      display: inline-block;
+      padding: 15px 35px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.75rem;
+      color: white;
+      background-color: rgba(64, 145, 92, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.22);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+      animation: nextPulse 1.3s infinite ease-in-out;
+    }
+
+    .topic-next-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(40, 125, 70, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .menu-back-button {
+      display: inline-block;
+      padding: 15px 30px;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 0.7rem;
+      color: white;
+      background-color: rgba(120, 72, 35, 0.9);
+      border: 2px solid white;
+      border-radius: 12px;
+      text-decoration: none;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.45);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+      animation: brownFlash 1s infinite ease-in-out;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    }
+
+    .menu-back-button:hover {
+      transform: scale(1.08);
+      background-color: rgba(150, 90, 45, 0.95);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
+    }
+
+    .menu-back-button:active,
+    .topic-next-button:active {
+      transform: scale(0.95);
+    }
+
+    @keyframes brownFlash {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.7;
+      }
+    }
+
+    @keyframes nextPulse {
+      0%, 100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.75;
+      }
+    }
+
+    .scroll-reveal {
+      opacity: 0;
+      transform: translateY(45px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .scroll-reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 900px) {
+      .top-left-menu-button {
+        top: 15px;
+        left: 15px;
+      }
+
+      .page1,
+      .info-page {
+        padding: 55px 24px 35px;
+      }
+
+      .info-page {
+        background-attachment: scroll;
+      }
+
+      .learn-heading {
+        font-size: 1.3rem;
+      }
+
+      .page-title {
+        font-size: 0.85rem;
+      }
+
+      .box-text {
+        font-size: 0.55rem;
+      }
+
+      .green-box {
+        padding: 24px;
+      }
+
+      .topic-icon {
+        max-width: 170px;
+      }
+
+      .topic-next-button,
+      .menu-back-button {
+        font-size: 0.58rem;
+        padding: 13px 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="page1 scroll-reveal">
+    <a href="Index.html" class="menu-back-button top-left-menu-button">GO BACK TO MENU</a>
+
+    <h1 class="main-title">NTO 2 - Cyber Security</h1>
+    <h2 class="learn-heading">What I learnt</h2>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">The Targets of Cyber Security Attacks</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Cyber attacks can target different people, organisations, data, and equipment. Some attacks are aimed at everyday individuals to steal personal details such as passwords, bank information, or email accounts. Other attacks target organisations like schools, hospitals, businesses, or government services to interrupt their work. Attackers may also target data because personal and business information can be valuable. In some cases, equipment and systems can be attacked to make them crash, overload, or stop working properly.
+      </p>
+
+      <img 
+        src="Icon for cybersecurity.gif" 
+        alt="Cybersecurity Icon" 
+        class="topic-icon"
+      >
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Types of Cyber Security Incidents</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        A cyber security incident happens when an attack successfully affects a system or its data. One common incident is data theft, where attackers steal private information and may use it for fraud or sell it online. Another incident is data destruction, where files are deleted or damaged so they cannot be used anymore. Data can also be changed without permission, which is called data manipulation. This can be dangerous because people may not notice the changes straight away, especially if records, grades, or financial details have been altered.
+      </p>
+
+      <img 
+        src="Icon for cybersecurity.gif" 
+        alt="Cybersecurity Icon" 
+        class="topic-icon"
+      >
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Types of Attackers and Their Motivations</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        There are many types of attackers in cyber security. Hackers may try to break into systems using technical skills, while scammers and phishers trick people with fake emails, messages, or websites. Cyber criminals usually attack systems to make money through fraud, stolen data, or ransomware. Some attackers may want attention, while others may be involved in spying or disruption. Their motivations can include financial gain, stealing secrets, damaging an organisation, gaining publicity, or causing fear and confusion.
+      </p>
+
+      <img 
+        src="Icon for cybersecurity.gif" 
+        alt="Cybersecurity Icon" 
+        class="topic-icon"
+      >
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">The Legal Implications of Cyber Security</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Cyber crime is illegal because it can cause serious harm to people and organisations. In the UK, the Computer Misuse Act 1990 makes it illegal to access, change, or damage computer systems without permission. This means hacking into accounts or changing data without permission is a criminal offence. Data protection laws also require organisations to keep personal information safe and secure. If an organisation fails to protect data, it can face legal consequences, fines, and a loss of trust from customers or users.
+      </p>
+
+      <img 
+        src="Icon for cybersecurity.gif" 
+        alt="Cybersecurity Icon" 
+        class="topic-icon"
+      >
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Types of Threat</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Cyber threats are different methods attackers use to get into systems or cause damage. Some threats use technical methods, such as malware, viruses, worms, spyware, adware, clickjacking, botnets, and denial of service attacks. These can damage devices, slow down networks, steal information, or stop websites from working. Other threats use human mistakes instead of technical weaknesses. This is called social engineering. Examples include phishing emails, fake websites, scams, blagging, shouldering, and hacking. These attacks can lead to serious problems like stolen accounts, identity theft, and loss of private data.
+      </p>
+
+      <img 
+        src="Icon for cybersecurity.gif" 
+        alt="Cybersecurity Icon" 
+        class="topic-icon"
+      >
+    </div>
+  </section>
+
+  <section class="info-page scroll-reveal">
+    <h3 class="page-title">Logical Protection Measures</h3>
+
+    <div class="green-box">
+      <p class="box-text">
+        Logical protection measures are security tools and rules used to protect computer systems. A common method is authentication, such as usernames and strong passwords, to make sure only the right users can log in. Some systems also use tokens or biometrics for extra security. Access rights and permissions control what users are allowed to see or change. Firewalls help block unsafe network traffic, while anti-virus software scans for malware and removes threats. Encryption protects data by making it unreadable to anyone without the correct key. Backups are also important because they help restore data if it is lost, damaged, or stolen.
+      </p>
+
+      <img 
+        src="Icon for cybersecurity.gif" 
+        alt="Cybersecurity Icon" 
+        class="topic-icon"
+      >
+    </div>
+
+    <div class="button-row">
+      <a href="nto3.html" class="topic-next-button">NEXT</a>
+    </div>
+  </section>
+
+  <script>
+    const revealElements = document.querySelectorAll('.scroll-reveal');
+
+    function revealOnScroll() {
+      revealElements.forEach((element) => {
+        const elementTop = element.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+
+        if (elementTop < windowHeight - 100) {
+          element.classList.add('show');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+</body>
+</html>
